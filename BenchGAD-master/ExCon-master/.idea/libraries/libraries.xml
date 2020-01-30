@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="libraries">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libraries/log4jdbc-log4j2-jdbc4.1-1.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/mapd-1.0-SNAPSHOT-jar-with-dependencies.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/jackson-databind-2.9.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/mapdjdbc-1.0-SNAPSHOT-jar-with-dependencies.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/jackson-core-2.9.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/jackson-annotations-2.9.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

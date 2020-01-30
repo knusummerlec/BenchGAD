@@ -1,0 +1,23 @@
+
+postfiix
+ firewalld
+ iscsi
+ atd
+ chronyd
+ auditd
+ autovt@
+ bluetooth
+ cups
+ rngd
+ wpa_supplicant
+ irqbalance
+ abrtd
+ sendmail
+ abrt
+ libvirtd
+ mcelog
+ modemManager
+ multipathd
+ qemu-guest-agent
+ smartd
+ spice-vdagentd 

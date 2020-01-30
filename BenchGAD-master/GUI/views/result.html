@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>BenchGAD</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index">
+        <div class="sidebar-brand-icon">
+          <img
+            src="https://lh3.googleusercontent.com/M7PTgP0hgt-0KHX-2rQubeVyMvrfPAKmxeBWVs1eoaR35ZkvATAbjbyBAuzU0aRQbjDOlvnAhgAoemO8=w200-h220-rw"
+            weight="45" height="45">
+        </div>
+        <div class="sidebar-brand-text mx-3">BenchGAD</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Test option -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/index">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Test Options</span>
+        </a>
+        <a class="nav-link 2" href="/result">
+          <i class="fa fa-tasks"></i>
+          <span>Results</span>
+        </a>
+        <a class="nav-link 3" href="/people">
+          <i class="fa fa-user-graduate"></i>
+          <span>People</span>
+        </a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+              aria-labelledby="searchDropdown">
+              <form class="form-inline mr-auto w-100 navbar-search">
+                <div class="input-group">
+                  <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                    aria-label="Search" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                      <i class="fas fa-search fa-sm"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Results</h1>
+          </div>
+
+          <!-- Content Row -->
+
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+            </div>
+          </div>
+          <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!--'Currently in queue' Content Contatiner-->
+        <div class="container-fluid">
+          <!-- current queue table -->
+          <h3>Currently in queue</h3>
+          <form action="/benchGAD_Server" enctype="application/json" method="post">
+            <a href="#" onclick="return false" id="currentQueueButton"
+              class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+              <i class="fas fa-align-justify fa-sm text-white-100"></i> Filter
+            </a>
+          </form>
+          <script type="text/javascript">
+            var stringJson;
+
+            document.getElementById("currentQueueButton").addEventListener("click", function current_Queue_button_click() {
+
+              //open the filter
+
+            }, false);
+          </script>
+          <br>
+
+          <!--currently in queue dynamic table-->
+          <table class="table table-sm" id="currentTable">
+            <thead>
+              <tr class = "table-info">
+                <th scope="col">Workload</th>
+                <th scope="col">Scale Option</th>
+                <th scope="col">CPU Memory</th>
+                <th scope="col">GPU Memory</th>
+                <th scope="col">Dimension</th>
+                <th scope="col">DBMS</th>
+                <th scope="col">Query</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody> <!-- temporarily implement(Status) -->
+              <% for (var tmp in data){%>
+                <% if (data[tmp].Dimension == 2) {%>
+                  <tr class="table-primary">
+                <%} else {%>
+                  <tr class="table-secondary">
+                <%} %>
+                <td><%=data[tmp].Workload%></td>
+                <td><%=data[tmp].ScaleFactor%></td>
+                <td><%=data[tmp].CpuMemory%></td>
+                <td><%=data[tmp].GpuMemory%></td>
+                <td><%=data[tmp].Dimension%></td>
+                <td><%=data[tmp].DBMS%></td>
+                <td><%=data[tmp].Query%></td>
+                <% if (data[tmp].Dimension == 2) {%>
+                  <td>Executing</td>
+                <%} else {%>
+                  <td>Wating</td>
+                <%} %>
+              </tr>
+              <%} %>
+            </tbody>
+          </table>
+          <div class="pagination-container">
+            <nav>
+              <ul class="paginationCQ"></ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Current queue table dynamic pagination-->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script>
+          var CQtable = '#currentTable'
+          var CQpagenum = 0
+          var trailCQPagenum = 0;
+
+          $('paginationCQ').html('')
+          var CQtrnum = 0
+          var CQmaxRows = 10
+          var CQtotalRows = $(CQtable + ' tbody tr').length
+
+          $(CQtable + ' tr:gt(0)').each(function () {
+            CQtrnum++;
+
+            if (CQtrnum > CQmaxRows) {
+              $(this).hide()
+            }
+
+            if (CQtrnum <= CQmaxRows) {
+              $(this).show()
+            }
+          })
+
+          trailCQPagenum = CQpagenum
+
+          if (CQtotalRows > CQmaxRows) {
+            CQpagenum = Math.ceil(CQtotalRows / CQmaxRows)
+
+            for (var i = 1; i <= CQpagenum;)
+              $('.paginationCQ').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+
+            console.log("df", trailCQPagenum, CQpagenum)
+            if (trailCQPagenum > CQpagenum) {
+              console.log(trailCQPagenum, CQpagenum)
+              for (var i = trailCQPagenum; i > CQpagenum;)
+                $('.paginationCQ').detach('<li data-page="' + i + '">\<span>' + i-- + '<span class="sr-only">(current)</span></span>\</li>')
+            }
+          }
+
+          $('.paginationCQ li:first-child').addClass('active')
+          $('.paginationCQ li').on('click', function () {
+            var CQpageNum = $(this).attr('data-page')
+            var CQtrIndex = 0;
+            $('.paginationCQ li').removeClass('active')
+            $(this).addClass('active')
+            $(CQtable + ' tr:gt(0)').each(function () {
+              CQtrIndex++;
+
+              if (CQtrIndex > (CQmaxRows * CQpageNum) || CQtrIndex <= ((CQmaxRows * CQpageNum) - CQmaxRows)) {
+                $(this).hide()
+              } else {
+                $(this).show()
+              }
+            })
+          })
+
+          $(function () {
+            $('#currentTable thead tr').prepend('<th>ID</th>')
+            var currentId = 0;
+            $('#currentTable tbody tr').each(function () {
+              currentId++
+              $(this).prepend('<td>' + currentId + '</td>')
+            })
+          })
+        </script>
+
+        <br>
+        <br>
+
+        <!--'Past Result' Content Contatiner-->
+        <div class="container-fluid">
+          <h3>Past Result</h3>
+          <form action="/benchGAD_Server" enctype="application/json" method="post">
+            <a href="#" onclick="return false" id="pastResultButton"
+              class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+              <i class="fas fa-align-justify fa-sm text-white-100"></i> Filter
+            </a>
+          </form>
+          <br>
+          <!--Past Result dynamic table-->
+          <table class="table table-sm" id="pastTable">
+            <thead>
+              <tr class="table-info">
+                <th scope="col">Workload</th>
+                <th scope="col">Scale Option</th>
+                <th scope="col">CPU Memory</th>
+                <th scope="col">GPU Memory</th>
+                <th scope="col">Dimension</th>
+                <th scope="col">DBMS</th>
+                <th scope="col">Query</th>
+                <th scope="col">Status</th>
+                <th scope="col">Report</th>
+              </tr>
+            </thead>
+            <tbody>  <!-- temporarily implement(Status) -->
+              <% for (var tmp in data){%>
+                <% if (data[tmp].Dimension < 5) {%>
+                  <tr class="table-success">
+                <%} else {%>
+                  <tr class="table-danger">
+                <%} %>
+                <td><%=data[tmp].Workload%></td>
+                <td><%=data[tmp].ScaleFactor%></td>
+                <td><%=data[tmp].CpuMemory%></td>
+                <td><%=data[tmp].GpuMemory%></td>
+                <td><%=data[tmp].Dimension%></td>
+                <td><%=data[tmp].DBMS%></td>
+                <td><%=data[tmp].Query%></td>
+
+                <% if (data[tmp].Dimension < 5) {%>
+                  <td>Success</td>
+                <%} else {%>
+                  <td>Fail</td>
+                <%} %>
+                <td>
+                  <!-- report link -->
+                  <font color="blue"><u> <a href="/report5dbf991eeb63520650c32d5e"> Check</a> </u></font>
+                </td>
+              </tr>
+              <%} %>
+            </tbody>
+          </table>
+          <div class="pagination-container">
+            <nav>
+              <ul class="pagination"></ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- past result table dynamic pagination-->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script>
+          var PRtable = '#pastTable'
+          $('pagination').html('')
+          var PRtrnum = 0
+          var PRmaxRows = 10
+          var PRtotalRows = $(PRtable + ' tbody tr').length
+
+          $(PRtable + ' tr:gt(0)').each(function () {
+            PRtrnum++;
+
+            if (PRtrnum > PRmaxRows) {
+              $(this).hide()
+            }
+
+            if (PRtrnum <= PRmaxRows) {
+              $(this).show()
+            }
+          })
+
+          if (PRtotalRows > PRmaxRows) {
+            var PRpagenum = Math.ceil(PRtotalRows / PRmaxRows)
+
+            for (var i = 1; i <= PRpagenum;) {
+              $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+            }
+          }
+          $('.pagination li:first-child').addClass('active')
+          $('.pagination li').on('click', function () {
+            var PRpageNum = $(this).attr('data-page')
+            var PRtrIndex = 0;
+            $('.pagination li').removeClass('active')
+            $(this).addClass('active')
+            $(PRtable + ' tr:gt(0)').each(function () {
+              PRtrIndex++;
+
+              if (PRtrIndex > (PRmaxRows * PRpageNum) || PRtrIndex <= ((PRmaxRows * PRpageNum) - PRmaxRows)) {
+                $(this).hide()
+              } else {
+                $(this).show()
+              }
+            })
+          })
+
+          $(function () {
+            $('#pastTable thead tr').prepend('<th>ID</th>')
+            var pastId = 0;
+            $('#pastTable tbody tr').each(function () {
+              pastId++
+              $(this).prepend('<td>' + pastId + '</td>')
+            })
+          })
+        </script>
+
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+          <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
